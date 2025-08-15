@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baltacı Asansör — KKTC</title>
+  <meta name="description" content="Baltacı Asansör: KKTC'de asansör montaj, bakım ve modernizasyon.">
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header style="position:sticky;top:0;z-index:10;background:#0b1020cc;backdrop-filter:blur(8px);border-bottom:1px solid #1c2a4b">
+    <div style="max-width:1100px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between">
+      <a href="#" style="display:flex;align-items:center;gap:10px;color:#e9edf4;text-decoration:none;font-weight:600">
+        <img src="assets/logo.svg" alt="Baltacı Asansör" height="28"> Baltacı Asansör
+      </a>
+      <nav>
+        <a href="#services" style="margin-left:16px;color:#9fb0c6;text-decoration:none">Hizmetler</a>
+        <a href="#products" style="margin-left:16px;color:#9fb0c6;text-decoration:none">Ürünler</a>
+        <a href="#contact"  style="margin-left:16px;color:#9fb0c6;text-decoration:none">İletişim</a>
+        <a href="#map"  style="margin-left:16px;color:#9fb0c6;text-decoration:none">Konum</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section style="padding:64px 0 24px">
+    <div style="max-width:1100px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center">
+      <div>
+        <h1 style="margin:0 0 10px;font-size:clamp(28px,5vw,48px)">Güvenli, konforlu, güvenilir asansör çözümleri.</h1>
+        <p style="color:#9fb0c6;font-size:clamp(15px,2.2vw,18px);margin:0 0 14px">KKTC genelinde montaj, bakım ve modernizasyon — 7/24 destek.</p>
+        <a href="#contact" class="btn-primary">Teklif Al</a>
+      </div>
+      <div>
+        <img src="images/hero.jpg" alt="Asansör kabini" width="1400" height="700" style="width:100%;border-radius:16px;border:1px solid #1c2a4b">
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="h">Hizmetler</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Montaj</h3>
+          <ul class="list">
+            <li>MR/MRL yolcu ve panoramik asansörler</li>
+            <li>Yük ve servis asansörleri</li>
+            <li>EN 81-41 erişilebilir platformlar</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Bakım</h3>
+          <ul class="list">
+            <li>Planlı periyodik bakım</li>
+            <li>7/24 arıza müdahalesi</li>
+            <li>Güvenlik denetimleri & rapor</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Modernizasyon</h3>
+          <ul class="list">
+            <li>Kontrol panosu, kapılar, COP/LOP</li>
+            <li>Kabin/şaft yenileme</li>
+            <li>Enerji verimliliği paketleri</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products (simple image strip; swap to your carousel later if you like) -->
+  <section id="products" class="section alt">
+    <div class="container">
+      <h2 class="h">Ürünler</h2>
+      <div class="grid-2">
+        <div class="card">
+          <img src="images/prod-passenger.jpg" alt="Yolcu Asansörleri" width="1200" height="800">
+          <h4>Yolcu Asansörleri</h4>
+          <p class="muted">630–1600 kg, MR/MRL, 1.0–1.6 m/s</p>
+        </div>
+        <div class="card">
+          <img src="images/prod-freight.jpg" alt="Yük Asansörleri" width="1200" height="800">
+          <h4>Yük Asansörleri</h4>
+          <p class="muted">1000–5000 kg, dayanıklı kabinler</p>
+        </div>
+        <div class="card">
+          <img src="images/prod-accessible.jpg" alt="Engelli Platformları" width="1200" height="800">
+          <h4>Engelli Platformları</h4>
+          <p class="muted">İç/dış mekân, EN 81-41</p>
+        </div>
+        <div class="card">
+          <img src="images/prod-panoramic.jpg" alt="Panoramik Asansörler" width="1200" height="800">
+          <h4>Panoramik Asansörler</h4>
+          <p class="muted">Cam kabin, özel tasarım</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="h">İletişim</h2>
+      <div class="card">
+        <p>Telefon: <a href="tel:+905551112233">+90 555 111 22 33</a> · WhatsApp: <a href="https://wa.me/905551112233" target="_blank" rel="noopener">Hemen yaz</a> · E-posta: <a href="mailto:info@example.com">info@example.com</a></p>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hidden"><label>Bot: <input name="bot-field"></label></p>
+          <div class="row">
+            <label>Ad Soyad<input name="name" required></label>
+            <label>E-posta<input type="email" name="email" required></label>
+          </div>
+          <label>Mesaj<textarea name="message" rows="4" required></textarea></label>
+          <button class="btn-primary" type="submit">Gönder</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Map (your real embed, responsive) -->
+  <section id="map" class="section">
+    <div class="container">
+      <h2 class="h">Konum</h2>
+      <div class="card">
+        <iframe class="map-embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1629.7926441873196!2d33.34321083885937!3d35.21679758448659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de114375b0f003%3A0xc92a21d04e2c33bf!2sBaltac%C4%B1%20%26%20Co%20Ltd%20-%20Baltac%C4%B1%20Lifts!5e0!3m2!1sen!2s!4v1755261249044!5m2!1sen!2s"
+          style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/905551112233" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp ile iletişime geç">
+    <img src="assets/whatsapp-icon.svg" alt="WhatsApp">
+  </a>
+
+  <footer class="footer">© <span id="y"></span> Baltacı Asansör — KKTC</footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
