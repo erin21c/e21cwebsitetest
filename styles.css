@@ -1,30 +1,236 @@
-/* Base theme (already similar to yours) */
-body{background:radial-gradient(900px 500px at 20% 0,#111a34 0,#0b1020 60%);color:#e9edf4;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif;margin:0}
+/* Base theme */
+:root{
+  --bg:#001455; --panel:transparent; --line:#009418; --text:#e9edf4; --muted:#e9edf4; --primary:#009418; --accent:#25d366;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{ /*background color*/
+  background: radial-gradient(900px 500px at 20% 0,#002fff 0,#001455 60%);
+  color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif;
+}
 a{color:#9cc1ff} a:hover{color:#cfe1ff}
+img{max-width:100%;height:auto;display:block}
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
 .section{padding:36px 0}
+.alt{background:rgba(255,255,255,.02)}
 .h{margin:0 0 12px}
+.brand-name{font-size: 21px; font-weight: 600; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+
+
+h1{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; -webkit-text-stroke: #06d128; color: rgb(0, 0, 0);}
+h5{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #000000; font-weight: 600; font-size: 18px; margin-bottom: 0;}
+/* Buttons */
+h2{color: black;}
+.btn-primary{
+  display:inline-block;background:var(--primary);color:#ffffff;padding:11px 16px;border-radius:12px;
+  text-decoration:none;border:0;cursor:pointer
+}
+.btn-ghost{
+  display:inline-block;border:1px solid var(--line);color:black;padding:10px 16px;border-radius:12px;text-decoration:none;margin-left:8px;
+}
+
+/* Cards & grids */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.card{background:#0f1830;border:1px solid #1c2a4b;border-radius:16px;padding:18px}
-.list{margin:8px 0 0;padding-left:18px}
-.muted{color:#9fb0c6}
-.footer{color:#9fb0c6;padding:28px 0 40px;text-align:center}
-.hidden{display:none}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-input,textarea{width:100%;margin-top:6px;padding:10px;border-radius:10px;border:1px solid #1c2a4b;background:#0b1226;color:#e9edf4}
-.btn-primary{display:inline-block;background:#0d6efd;color:#fff;padding:12px 16px;border-radius:12px;text-decoration:none;border:0;cursor:pointer}
+.muted{color:var(--muted)} .small{font-size:12px}
 
-/* Responsive media & map */
-img{max-width:100%;height:auto}
+/* Header (collapsing on scroll) */
+.header{
+  position:sticky; top:0; z-index:10000;
+  background:rgba(11,16,32,.65); backdrop-filter: blur(8px);
+  border-bottom:1px solid var(--line);
+  transition: padding .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.navbar{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px; padding:14px 20px; transition: padding .25s ease;
+}
+.brand{display:flex; align-items:center; gap:10px; color:var(--text); text-decoration:none; font-weight:600}
+.brand-logo{height:48px; width:auto; transition: height .25s ease}
+.nav-links{list-style:none; display:flex; gap:18px; margin:0; padding:0}
+.nav-links a{text-decoration:none; color:var(--muted); font-weight:600}
+.nav-links a:hover{color:#fff}
+
+/* Shrunk state */
+.header.scrolled{ background:#0b1020e6; box-shadow:0 6px 16px rgba(0,0,0,.25) }
+.header.scrolled .navbar{ padding:8px 20px }
+.header.scrolled .brand-logo{ height:36px }
+
+/* Sidebar toggle button */
+.sidebar-toggle{
+  background:var(--panel); color:var(--text); border:1px solid var(--line);
+  border-radius:10px; padding:6px 10px; cursor:pointer
+}
+
+/* Sidebar */
+.sidebar{
+  position: fixed; inset: 0 auto 0 0; width: 280px; max-width:85vw; height:100vh;
+  background: var(--panel); color:var(--text); border-right:1px solid var(--line);
+  transform: translateX(-100%); transition: transform .28s ease; z-index: 10002;
+  display:flex; flex-direction:column; outline:none;
+}
+.sidebar.is-open{ transform: translateX(0) }
+.sidebar-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.sidebar-title{font-weight:700}
+.sidebar-close{background:transparent;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer}
+.sidebar-nav{display:flex;flex-direction:column;padding:10px 8px}
+.sidebar-nav a{padding:10px 12px;border-radius:10px;color:var(--text);text-decoration:none}
+.sidebar-nav a:hover{background:#0b1226}
+.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10000}
+
+/* Hero (kept) */
+.hero{position:relative;width:100%;height:33vh;min-height:220px;max-height:420px;overflow:hidden}
+.hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-overlay{
+  position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+  height:100%;text-align:left;color:#fff;background:linear-gradient(to center, rgba(0, 0, 0, 0.35), rgba(0,0,0,.1));
+  padding:20px 30px;
+}
+.hero-actions{margin-top:8px}
+
+/* FAQ */
+.faq{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}
+.faq>summary{cursor:pointer;font-weight:600;list-style:none}
+.faq[open]{box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.faq>summary::-webkit-details-marker{display:none}
+
+/* Map responsive */
 iframe{max-width:100%;display:block}
 .map-embed{width:100%;aspect-ratio:16/9;height:auto;border:0}
 
-/* Layout on small screens */
-@media (max-width:900px){ .grid-3{grid-template-columns:1fr} .grid-2{grid-template-columns:1fr} .row{grid-template-columns:1fr} }
-
-/* Floating WhatsApp button */
-.whatsapp-float{position:fixed;width:56px;height:56px;bottom:20px;right:20px;background:#25d366;border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;z-index:999;transition:transform .2s,box-shadow .2s}
+/* WhatsApp floating button */
+.whatsapp-float{position:fixed;width:56px;height:56px;bottom:20px;right:20px;background:#06d128;border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;z-index:999;transition:transform .2s,box-shadow .2s}
 .whatsapp-float:hover{transform:scale(1.05);box-shadow:0 6px 16px rgba(0,0,0,.4)}
 .whatsapp-float img{width:32px;height:32px}
-@media (max-width:420px){ .whatsapp-float{bottom:16px;right:16px;width:52px;height:52px} .whatsapp-float img{width:28px;height:28px} }
+
+/* Footer */
+.footer{color:var(--muted);padding:28px 0 40px;text-align:center}
+
+/* Responsive */
+@media (max-width:900px){
+  .grid-3{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media (max-width:420px){
+  .whatsapp-float{bottom:16px;right:16px;width:52px;height:52px}
+  .whatsapp-float img{width:28px;height:28px}
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .header,.navbar,.brand-logo,.sidebar{transition:none}
+}
+
+/* Reset container width */
+.container {
+  width: 100%;
+  max-width: 1200px; /* keeps it nice on large monitors */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Make hero span the whole viewport 
+.hero {
+  width: 100%;
+  min-height: 90vh; 
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end; /* text bottom 
+  padding: 2rem;
+  color: #fff; }
+}  
+
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh; 
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+*/ 
+
+.hero {
+    background-size: cover;
+    background-position: center;
+    background-image: url('images/hero.jpg');
+    display: flex;
+  height: 90vh;   /* default for desktops */
+  min-height: 80vh;
+  offset: 0 10;
+}
+
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .hero {
+    background-image: url('images/hero2.jpg'); /* different image for portrait */
+    height: 30vh;   /* smaller height on portrait */
+  }
+}
+
+
+@media (max-width: 480px) {
+  .hero {
+    height: 30vh;   /* even smaller for small phones */
+  }
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+
+/*=======================================================FOOTER======================================================================================*/
+
+/* Footer */
+.site-footer{
+  background:#0b1226;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  padding:40px 0 24px;
+}
+.site-footer .footer-title{
+  color:var(--text);
+  font-size:1rem;
+  margin-bottom:.5rem;
+  font-weight:700;
+}
+.footer-brand .brand-name{
+  font-weight:700;
+  color:var(--text);
+  font-size:1.1rem;
+}
+.footer-links a{
+  display:inline-block;
+  padding:4px 0;
+  color:#9cc1ff;
+  text-decoration:none;
+}
+.footer-links a:hover{ color:#cfe1ff; text-decoration:underline; }
+.footer-divider{ border-color:var(--line); opacity:1; }
+.footer-bottom a{ color:#9cc1ff; text-decoration:none; }
+.footer-bottom a:hover{ text-decoration:underline; }
+
+/* Accent button (WhatsApp style) */
+.btn-accent{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#0a0a0a;
+  border-radius:10px;
+}
+.btn-accent:hover{ filter:brightness(.95); }
+
+@media (max-width:768px){
+  .site-footer{ padding:28px 0 20px; }
+}
